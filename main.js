@@ -19,7 +19,9 @@ function getComputerChoice(){
         computerChoice = "scissors"
     }
 
-    console.log(computerChoice)
+    console.log("Computer: ",computerChoice)
+
+    return computerChoice
 
 }
 
@@ -27,37 +29,62 @@ function getComputerChoice(){
 
 function getPlayerChoice(){
     let playerChoice = prompt("Enter Rock, Papper or Scissors: ").toLowerCase()
-
+    console.log("Player: ",playerChoice)
+    return playerChoice
 }
 
 // Start round
 
-function startRound(playerChoice, computerChoice){
+function startRound(){
 
     let wins
     let loses
     let draws
 
+    const player = getPlayerChoice()
+    const computer = getComputerChoice()
+
     // Player win condition
 
-    if(playerChoice == "rock" & computerChoice == "scissors"){
+    if(player == "rock" & computer == "scissors"){
         wins ++
         console.log("Player wins!")
     }
 
-    else if(playerChoice == "paper" & computerChoice == "rock"){
+    else if(player == "paper" & computer == "rock"){
         wins ++
         console.log("Player wins!")
     }
 
-    else if(playerChoice == "scissors" & computerChoice == "paper"){
+    else if(player == "scissors" & computer == "paper"){
         wins ++
         console.log("Player wins!")
     }
 
+    // Computer win condition
 
+    else if(computer == "rock" & player == "scissors"){
+        loses ++
+        console.log("Computer wins!")
+    }
+
+    else if(computer == "paper" & player == "rock"){
+        loses ++
+        console.log("Computer wins!")
+    }
+
+    else if(computer == "scissors" & player == "paper"){
+        loses ++
+        console.log("Computer wins!")
+    }
+
+    // Draw condition
+
+    else if(computer == player){
+        draws ++
+        console.log("Draw!")
+    }
 
 }
 
-getComputerChoice()
-getPlayerChoice()
+startRound()
