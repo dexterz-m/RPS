@@ -37,53 +37,69 @@ function getPlayerChoice(){
 
 function startRound(){
 
-    let wins
-    let loses
-    let draws
+    let wins = 0
+    let loses = 0
+    let draws = 0
 
-    const player = getPlayerChoice()
-    const computer = getComputerChoice()
+    for (let i = 0; i < 10; i++){
 
-    // Player win condition
+        const player = getPlayerChoice()
+        const computer = getComputerChoice()
 
-    if(player == "rock" & computer == "scissors"){
-        wins ++
-        console.log("Player wins!")
+        // Player win condition
+
+        if(player == "rock" & computer == "scissors"){
+            console.log("Player wins!")
+            wins ++
+        }
+
+        else if(player == "paper" & computer == "rock"){
+            console.log("Player wins!")
+            wins++
+        }
+
+        else if(player == "scissors" & computer == "paper"){
+            console.log("Player wins!")
+            wins++
+        }
+
+        // Computer win condition
+
+        else if(computer == "rock" & player == "scissors"){
+            console.log("Computer wins!")
+            loses++
+        }
+
+        else if(computer == "paper" & player == "rock"){
+            console.log("Computer wins!")
+            loses++
+        }
+
+        else if(computer == "scissors" & player == "paper"){
+            console.log("Computer wins!")
+            loses++
+        }
+
+        // Draw condition
+
+        else if(computer == player){
+            console.log("Draw!")
+            draws++
+        }
+
+        // Score output
+
+        console.log("Wins :",wins)
+        console.log("Loses :",loses)
+        console.log("Draws :",draws)
     }
 
-    else if(player == "paper" & computer == "rock"){
-        wins ++
-        console.log("Player wins!")
-    }
+    // Results
 
-    else if(player == "scissors" & computer == "paper"){
-        wins ++
-        console.log("Player wins!")
-    }
-
-    // Computer win condition
-
-    else if(computer == "rock" & player == "scissors"){
-        loses ++
-        console.log("Computer wins!")
-    }
-
-    else if(computer == "paper" & player == "rock"){
-        loses ++
-        console.log("Computer wins!")
-    }
-
-    else if(computer == "scissors" & player == "paper"){
-        loses ++
-        console.log("Computer wins!")
-    }
-
-    // Draw condition
-
-    else if(computer == player){
-        draws ++
-        console.log("Draw!")
-    }
+    console.log("Results:")
+    console.log("Wins :",wins)
+    console.log("Loses :",loses)
+    console.log("Draws :",draws)
 
 }
 
